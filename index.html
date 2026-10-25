@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Coach</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Focus Coach</h1>
+      <p id="greeting" class="greeting">Tell me how you're doing and I'll pick your next task.</p>
+      <p id="level-badge" class="badge" aria-live="polite"></p>
+    </header>
+
+    <form id="checkin-form" class="card" novalidate>
+      <label for="name">Your name</label>
+      <input type="text" id="name" placeholder="e.g. Sam" autocomplete="given-name">
+
+      <label for="energy">Energy level: <strong id="energy-value">5</strong>/10</label>
+      <input type="range" id="energy" min="1" max="10" value="5">
+
+      <label for="mood">Current mood</label>
+      <select id="mood">
+        <option value="good">Good</option>
+        <option value="tired">Tired</option>
+        <option value="stressed">Stressed</option>
+        <option value="bored">Bored</option>
+      </select>
+
+      <label for="minutes">Time available (minutes)</label>
+      <input type="number" id="minutes" min="5" max="240" value="30">
+
+      <p id="error" class="error" role="alert"></p>
+      <button type="submit" class="primary">Get my plan</button>
+    </form>
+
+    <section id="result" class="card result hidden" aria-live="polite">
+      <p id="result-mode" class="mode-tag"></p>
+      <h2 id="result-title"></h2>
+      <p id="result-text"></p>
+      <p id="result-note" class="note"></p>
+      <div class="actions">
+        <button id="done-btn" class="primary">I did it</button>
+        <button id="skip-btn" class="secondary">Try something else</button>
+      </div>
+    </section>
+
+    <footer class="stats">
+      <span>Completed: <strong id="stat-completed">0</strong></span>
+      <span>Skips in a row: <strong id="stat-skips">0</strong></span>
+      <span>Visits: <strong id="stat-visits">1</strong></span>
+      <button id="reset-btn" class="link">Reset progress</button>
+    </footer>
+  </main>
+
+  <script src="JavaScript/script.js"></script>
+</body>
+</html>
